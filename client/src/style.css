@@ -1,0 +1,268 @@
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@100;300;400;500;700;800;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* font-family: 'Montserrat', sans-serif; */
+  /* font-family: 'Ubuntu', sans-serif; */
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  /* font-size: small; */
+}
+
+body {
+  background: #1855af;
+  /* color:#080808; */
+  width: 90vw;
+  /* font-size: small; */
+  height: 90vh;
+  /* max-height: 100px; */
+}
+.logo {
+  position: absolute;
+  left: 47%;
+  height: 40px;
+  /* align-items: center; */
+}
+header {
+	/* background: url('http://www.autodatz.com/wp-content/uploads/2017/05/Old-Car-Wallpapers-Hd-36-with-Old-Car-Wallpapers-Hd.jpg'); */
+	/* text-align: center; */
+	width: 100%;
+  max-width: 1440px;
+	height: 3rem;
+	background-size: cover;
+	/* background-attachment: fixed; */
+  /* display: inline; */
+	/* position: relative; */
+	/* overflow: hidden; */
+	/* border-radius: 0 0% 15% 15%; */
+  margin-bottom: 2rem;
+}
+header .overlay{
+	width: 100%;
+  max-width: 1440px;
+	height: 100%;
+  /* max-height: 2560px; */
+	padding: 10px;
+  /* display: inline; */
+  /* margin-bottom: 20px; */
+	color: #FFF;
+	/* text-shadow: 1px 1px 1px #333; */
+  /* background-image: linear-gradient( 135deg, #9f05ff69 10%, #fd5e086b 100%); */
+	/* background-image: linear-gradient(to right, #434343 0%, black 100%); */
+}
+h1 {
+	/* font-family: 'Dancing Script', cursive; */
+	font-size: 30px;
+  /* display: inline; */
+	margin-bottom: 10px;
+}
+
+h4, p {
+	/* font-family: 'Open Sans', sans-serif; */
+  font-size: 12px;
+  display: inline;
+  /* float: right; */
+	/* margin-bottom: 10px; */
+}
+.empty-chat__container {
+  /* position: relative; */
+  /* display: block; */
+  width: 95vw;
+  /* height: 40vh; */
+  max-width: 1440px;
+  /* height: auto; */
+  /* max-height: 1440px; */
+  text-align: center;
+  margin-bottom: 12rem;
+}
+.empty-chat__container h1 {
+  font-size: 5rem;
+  background: linear-gradient(177deg, rgba(61,235,113,1) 0%, rgba(103,93,251,1) 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+.empty-chat__container h3 {
+  font-size: 1.5rem;
+  background: linear-gradient(67deg, rgba(131,61,235,1) 0%, rgba(251,93,213,1) 100%);
+  -webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;  
+}
+#app {
+  width: 100vw;
+  height: 90vh;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: space-between;
+}
+
+#chat_container {
+  flex: 1;
+  width: 90%;
+  max-width: 1440px;
+  height: 100%;
+  max-height: 100vh;
+  overflow-y: scroll;
+
+  display: flex;
+  flex-direction: column;
+  
+  gap: 1.5rem;
+  /* background: #ebeef7; */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  padding-bottom: 20px;
+  scroll-behavior: smooth;
+}
+
+/* hides scrollbar */
+#chat_container::-webkit-scrollbar {
+  display: none;
+}
+
+.wrapper {
+  /* width: 90%; */
+  display: inline-block;
+  /* width: ; */
+  background: rgb(61,225,235);
+  background: linear-gradient(82deg, rgba(61,225,235,1) 0%, rgba(103,93,251,1) 100%);
+  border-radius: 2rem 2rem 0 2rem;
+  padding: 1rem;
+}
+.wrapper.ai {
+  text-align: left;
+  width: max-content;
+  max-width: 100%;
+}
+.wrapper.user {
+  text-align: right;
+  width: max-content;
+  margin-left: auto;
+  max-width: 100%;
+}
+.wrapper.profile {
+  /* align-items: flex-end; */
+  align-content: right;
+}
+
+.ai {
+  /* background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%); */
+  /* background: linear-gradient(146deg, rgba(79,235,61,1) 0%, rgba(93,237,251,1) 100%); */
+  background: rgb(169,61,235);
+  background: linear-gradient(231deg, rgba(169,61,235,1) 0%, rgba(251,93,93,1) 100%);
+  border-radius: 2rem 2rem 2rem 0;
+  width: auto;
+}
+
+.chat {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  border-radius: 1rem;
+  display: flex;
+  float: right;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1rem;
+  
+}
+
+.profile {
+  width: 36px;
+  height: 36px;
+  border-radius: 100%;
+  /* text-align:left; */
+  /* position:relative; */
+  background: #147efb;
+  /* float: inline-end; */
+  /* margin: 0; */
+  display: flex;
+  /* display: inline-block; */
+  justify-content: center;
+  align-items: center;
+}
+
+.ai .profile {
+  background: #10a37f;
+}
+
+.profile img {
+  width: 60%;
+  height: 60%;
+  border-radius: 100%;
+  object-fit: contain;
+}
+
+.message {
+  flex: 1;
+  /* float: left; */
+  /* color: #dcdcdc; */
+  font-size: 17px;
+  line-height: 1.4;
+  margin-top: 1%;
+  /* width: max-content; */
+  /* max-width: 60%; */
+  overflow-x: scroll;
+  /* display: inline-block; */
+
+  /*
+   * white space refers to any spaces, tabs, or newline characters that are used to format the CSS code
+   * specifies how white space within an element should be handled. It is similar to the "pre" value, which tells the browser to treat all white space as significant and to preserve it exactly as it appears in the source code.
+   * The pre-wrap value allows the browser to wrap long lines of text onto multiple lines if necessary.
+   * The default value for the white-space property in CSS is "normal". This tells the browser to collapse multiple white space characters into a single space, and to wrap text onto multiple lines as needed to fit within its container.
+  */
+  white-space: pre-wrap; 
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* hides scrollbar */
+.message::-webkit-scrollbar {
+  display: none;
+}
+
+/* Form elements for typing prompts */
+
+form {
+  z-index: 15;
+  width: 100%;
+  max-width: 1440px;
+  margin: -1rem 0 0.2rem 0;
+  padding: 0 0 0.2rem 0;
+  background: #262a31;
+  color: #393E46;
+  box-shadow: 0 0 5px black;
+  display: flex;
+  flex-direction: row;
+  /* gap: 100px; */
+  border-radius: 0.8rem;
+}
+
+textarea {
+  width: 100%;
+  font-size: 18px;
+  padding: 10px;
+  margin: 10px;
+  background: transparent;
+  /* border-radius: 1rem; */
+  border: none;
+  outline: none;
+  resize: none;
+}
+
+button {
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  background: transparent;
+}
+
+form img {
+  width: 30px;
+  height: 30px;
+}
