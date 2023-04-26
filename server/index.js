@@ -1,13 +1,15 @@
 const express = require("express");
-
+const dotenv = require('dotenv');
 const cors = require("cors");
 const { Configuration, OpenAIApi } = require("openai");
 
-const OPENAI_API_KEY = "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";
+
 // import { Configuration, OpenAIApi} from 'openai';
-// dotenv.config();
+dotenv.config();
+
+
 const configuration = new Configuration({
-  apiKey: OPENAI_API_KEY,
+  apiKey: process.env.OPENAI_API_KEY,
 });
 const openai = new OpenAIApi(configuration);
 const app = express();
@@ -28,7 +30,7 @@ app.post("/post", async (req, res) => {
     const response = await openai.createCompletion({
       model: "text-davinci-003",
       prompt: question,
-      max_tokens: 3000,
+      max_tokens: 300,
       temperature: 0,
       top_p: 1,
       frequency_penalty: 0.5,
@@ -40,6 +42,7 @@ app.post("/post", async (req, res) => {
     })
   
     console.log(question);
+  
 }catch(error){
     console.log(error);
     res.status(500).send(error || "something went wrong");

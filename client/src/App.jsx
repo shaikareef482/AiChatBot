@@ -18,8 +18,10 @@ function App() {
     upadateQna(YOU,question);
 
     SetLoadig(true);
-
-    const response = await axios.post("http://localhost:4000/post",{question});
+    c
+    const response = await axios.post("http://localhost:4000/post",{question},{headers:{
+      'Content-Type':'application/json'
+    }});
 
      upadateQna(AI,response.data.answer);
 
