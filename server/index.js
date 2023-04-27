@@ -1,6 +1,7 @@
 const express = require("express");
 const dotenv = require('dotenv');
 const cors = require("cors");
+const path = require('path');
 const { Configuration, OpenAIApi } = require("openai");
 
 
@@ -49,6 +50,20 @@ app.post("/post", async (req, res) => {
 }  
   
 });
+
+const __dirname1 = path.resolve();
+
+if(process.env.NODE_ENV== 'production')
+{
+  app.use(express.static(path.join(__dirname1,"/client/dist")));
+  app.get('*',(req,res)=>{
+    res.sendFile(path.resolve(__dirname1,"client","dist","index.html"));
+  })
+}else{
+  app.get('/',(req,res)=>{
+    res.send("API is Running Successfully");
+  })
+}
 
 app.listen(4000, () => {
   console.log("Server is listening on port 4000");
