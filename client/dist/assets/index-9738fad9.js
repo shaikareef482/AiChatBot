@@ -1,0 +1,10 @@
+(function(){const r=document.createElement("link").relList;if(r&&r.supports&&r.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))s(e);new MutationObserver(e=>{for(const n of e)if(n.type==="childList")for(const i of n.addedNodes)i.tagName==="LINK"&&i.rel==="modulepreload"&&s(i)}).observe(document,{childList:!0,subtree:!0});function o(e){const n={};return e.integrity&&(n.integrity=e.integrity),e.referrerPolicy&&(n.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?n.credentials="include":e.crossOrigin==="anonymous"?n.credentials="omit":n.credentials="same-origin",n}function s(e){if(e.ep)return;e.ep=!0;const n=o(e);fetch(e.href,n)}})();const c=document.querySelector("form"),a=document.querySelector("#chat_container"),f=document.querySelector(".empty-chat__container");let l;function p(t){t.textContent="",l=setInterval(()=>{t.textContent+=".",t.textContent==="...."&&(t.textContent="")},300)}function m(t,r){let o=0,s=setInterval(()=>{o<r.length?(t.innerHTML+=r.charAt(o),o++):clearInterval(s)},20)}function y(){const t=Date.now(),o=Math.random().toString(16);return`id-${t}-${o}`}function d(t,r,o){return`<div class="wrapper ${t?"ai":"user"}">
+
+      <div class="chat">
+      ${t?`
+        <div class="message" id=${o}>${r}</div>`:`<div class="message" id=${o}>${r}</div>
+          `} 
+      </div>
+      
+    </div>
+    `}const u=async t=>{t.preventDefault(),f.style.display="none";const r=new FormData(c);a.innerHTML+=d(!1,r.get("prompt")),c.reset();const o=y();a.innerHTML+=d(!0," ",o),a.scrollTop=a.scrollHeight;const s=document.getElementById(o);p(s);const e=await fetch("http://localhost:4000/post",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({prompt:r.get("prompt")})});if(clearInterval(l),s.innerHTML="",e.ok){const i=(await e.json()).bot.trim();m(s,i)}else{const n=await e.text();s.innerHTML="Something went wrong",alert(n)}};c.addEventListener("submit",u);c.addEventListener("keyup",t=>{t.keyCode===13&&u(t)});
